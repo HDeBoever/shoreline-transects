@@ -141,7 +141,7 @@ class Transect():
 		midpoint_coord = (((x1 + x2)/2), ((y1 + y2)/2))
 		return midpoint_coord
 
-	# Called by get_transects() to populate baseline parameters. Returns 2 nodes, each 500 metres on either side of the reach line
+	# Called by get_transects() to populate baseline parameters. Returns 2 nodes on either side of the reach line
 	# Perpendicular bisector formula
 	# https://math.stackexchange.com/questions/306468/perpendicular-line-passing-through-the-midpoint-of-another-line
 	def get_reach_normal(self, reach, midpoint, distance, direction):
@@ -493,7 +493,7 @@ class Transect():
 			point_coords = []
 			kml = simplekml.Kml()
 			file = (relative_path + '/' + basename + '%02d.txt' % (x))
-			# Check if the file exists 
+			# Check if the file exists
 			if os.path.isfile(file):
 				with open(file, 'r') as f:
 					# Check if the file was empty before making a line object
