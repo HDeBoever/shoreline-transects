@@ -14,7 +14,7 @@ the area of interest. This ensures that the transects will be drawn from the sea
 
 See shoreline_transectsREADME.txt for more information about the program, its functions, and limitations.
 
-author: @Henri De Boever
+Author: Henri De Boever
 '''
 
 from scipy.interpolate import LinearNDInterpolator
@@ -311,9 +311,14 @@ class Transect():
 	# Create the interpolator in a function to allow more efficient running of the program
 	def instantiate_interpolator(self, file):
 		print("Creating the interpolator...")
-		interpolator_array = file['LI']
-		interpolator = interpolator_array[()]
-		return interpolator
+		try:
+			interpolator_array = file['LI']
+			interpolator = interpolator_array[()]
+			return interpolator
+		except UnicodeError as e:
+			print(e)
+			print("Please run the program again.")
+			sys.exit(0)
 
 	# Helper function to visualize the a 2d list (the transects in this case) in a matplotlib window
 	def plot_list(self, list, transect_number):
