@@ -29,7 +29,6 @@ setup(
 		'matplotlib',
 		'numpy',
 		'scipy',
-		'mpl_toolkits.basemap',
 		'simplekml',
 		'pyproj',
 		'shapely',
