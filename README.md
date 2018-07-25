@@ -1,5 +1,5 @@
 README for shoreline_transects.py
-@author: Henri De Boever
+Author: Henri De Boever
 2018/07/23
 
 A shoreline transect generator written by Henri De Boever for use by Cascadia Coast Research.
