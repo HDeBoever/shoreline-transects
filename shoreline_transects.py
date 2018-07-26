@@ -37,13 +37,13 @@ class Transect():
 		self.npz_file = np.load(bathymetric_data_file)
 		self.reaches_file = reaches_file
 
-		# Create the subdirectories in case they don't already exist
+		# Upon declaration of the class, create the subdirectories in case they don't already exist
 		if(os.path.exists('transect_files') is False):
 			os.mkdir('transect_files')
 			print("Created transect_files directory.")
 		if(os.path.exists('reach_files') is False):
 			os.mkdir('reach_files')
-			print("Created reach_files directory. Please ensure that the .txt file containing the UTM Reaches is stored here as well.")
+			print("Created reach_files directory. Ensure that the .txt file containing the UTM Reaches you intend to use is stored here as well.")
 			sys.exit(0)
 
 	# Class functions

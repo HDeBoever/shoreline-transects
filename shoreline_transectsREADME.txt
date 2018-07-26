@@ -182,13 +182,47 @@ This module serves to generate perpendicular transects given an input list of re
 
     7.1 Export usage ---------------
 
-    # Write the contents of the transect_object.reaches dict to text files
-  	transect_object.export_transects()
+      # Write the contents of the transect_object.reaches dict to text files
+    	transect_object.export_transects()
 
-  	# Write text file transects to kml format for use on google earth
-  	transect_object.export_transects_to_kml()
+    	# Write text file transects to kml format for use on google earth
+    	transect_object.export_transects_to_kml()
 
-  After the above calls, you should have .kml files that you can know import into Google earth. The elevation profiles of each transect
+    7.2 Export Format Example ---------------
+
+      The export_transects() function call will generate one text file per transect. The text file will look like this:
+      RDN_Transect1.txt
+      --------------------------------------------------------------------------
+      -124.7516722984504,49.46617162775108,-23.14755930009251,2.400000000000091
+      -124.75266837158877,49.465602502581234,-12.960932230730506,98.40000000000009
+      -124.75296718901872,49.46543176339651,-9.659108946168589,127.20000000000005
+      -124.7533158067219,49.46523256672801,-5.115199398773539,160.79999999999995
+      -124.75388852965307,49.46490531283035,-2.009482923646908,216.0
+      -124.75453594636447,49.46453537030641,-1.0,278.4
+      -124.75495925200626,49.46429348289631,-0.9948942152215459,319.20000000000005
+      -124.75568135198618,49.46388084793988,0.0,388.79999999999995
+      -124.75635364103655,49.46349666660872,0.0,453.5999999999999
+      -124.7567769287348,49.46325477270151,0.5,494.4
+      -124.75700102053042,49.46312671060871,1.0,516.0
+      -124.7571753133396,49.46302710646561,2.0,532.8
+      -124.75727490891246,49.46297018969724,1.899077625869819,542.4
+      -124.75732470661215,49.46294173128164,1.0,547.1999999999999
+      -124.75762349159578,49.46277098034836,1.021532480533931,576.0
+      -124.75834554671086,49.46235832914755,3.1326476204927296,645.6
+      -124.75869412069045,49.46215911664742,2.840633499192247,679.1999999999999
+      -124.75939126014852,49.46176068856936,4.001436295926697,746.4
+      -124.75976472305278,49.461547243268086,3.673361915744352,782.4
+      -124.76053653608027,49.461106119246935,4.795579038243247,856.8
+      -124.76093488575538,49.46087844036487,4.100629674697154,895.1999999999999
+      -124.76369833472955,49.45929888123287,3.492000254062196,1161.6
+      -124.76409665502948,49.45907119171689,3.801984944981162,1200.0
+      --------------------------------------------------------------------------
+
+      Each row in the text file represents a point of interest along the transect.
+      The first column is the longitude, the second is the latitude, the third is the interpolated depth at that point, and the fourth is the step out distance
+      from the normal endpoint in the sea.
+
+  After the above calls, you should have .kml files that you can now import into Google earth. The elevation profiles of each transect
   can also be viewed in Google Earth since the elevations have been initialized relative to sea level with simplekml.
   If the files already exist in the target directory, they will be overwritten.
 
@@ -458,6 +492,6 @@ This module serves to generate perpendicular transects given an input list of re
   - It wouldn't be a bad idea to re-write the read_reach_file function to accept formats different from the ones provided
     by: http://zonums.com/online/kml2x/
 
-  - THIS HAS SINCED BEEN FIXED: At times, when the transect is empty, after the export to .kml format,
+  - THIS HAS SINCE BEEN FIXED: At times, when the transect is empty, after the export to .kml format,
     you may get locations placed at 0 longitude and 0 latitude. Simply manually edit the text file
     and/or the .kml file, or ignore the bug.
